@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectSettings
+	AppVer="4.00.0098"
+	AppVerMinReader="4.00.0034"
+	GlobalConfiguration="1"
+	GlobalWorkspace="0"
+	LocalsInDb="0"
+	IndexMembers="1"
+	IndexFragments="1"
+	UseMasterFileList="1"
+	SourceDir="..\"
+	BackupDir="%PROJECT_DATA_DIR%\Backup"
+	MasterFileList="C:\Users\Administrator\Documents\GitHub\rt-thread\rt-thread\bsp\stm32\stm32f407-atk-explorer\rtt.si4project_filelist.txt"
+	IsImportProject="0"
+	>
+	<Imports>
+		<ImportedLibs/>
+	</Imports>
+	<ParseConditions>
+		<Defines/>
+	</ParseConditions>
+</ProjectSettings>
