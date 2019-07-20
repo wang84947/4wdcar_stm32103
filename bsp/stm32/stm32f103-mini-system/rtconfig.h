@@ -80,7 +80,9 @@
 #define RT_USING_SERIAL
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_HWTIMER
 #define RT_USING_PIN
+#define RT_USING_PWM
 
 /* Using Hardware Crypto drivers */
 
@@ -156,6 +158,9 @@
 
 /* samples: kernel and components samples */
 
+#define PKG_USING_PERIPHERAL_SAMPLES
+#define PKG_USING_PERIPHERAL_SAMPLES_LATEST_VERSION
+#define PERIPHERAL_SAMPLES_USING_PWM
 #define SOC_FAMILY_STM32
 #define SOC_SERIES_STM32F1
 
@@ -173,6 +178,12 @@
 #define BSP_USING_UART
 #define BSP_USING_UART1
 #define BSP_UART1_RX_USING_DMA
+#define BSP_USING_TIM
+#define BSP_USING_TIM4
+#define BSP_USING_PWM
+#define BSP_USING_PWM4
+#define BSP_USING_PWM4_CH1
+#define BSP_USING_PWM4_CH2
 
 /* Board extended module Drivers */
 

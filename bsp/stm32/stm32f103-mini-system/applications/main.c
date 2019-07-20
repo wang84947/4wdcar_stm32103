@@ -13,8 +13,8 @@
 #include <board.h>
 
 /* defined the LED0 pin: PC13 */
-#define LED0_PIN    GET_PIN(C, 13)
-
+//#define LED0_PIN    GET_PIN(C, 13)
+#define LED0_PIN    45
 int main(void)
 {
     int count = 1;

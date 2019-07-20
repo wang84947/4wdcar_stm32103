@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F103xB, USE_HAL_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..\..\..\include;applications;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m3;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;..\..\..\include;applications;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;packages\peripheral_samples-latest;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m3;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -498,9 +498,29 @@
               <FilePath>..\libraries\HAL_Drivers\drv_usart.c</FilePath>
             </File>
             <File>
+              <FileName>drv_hwtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_hwtimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_pwm.c</FilePath>
+            </File>
+            <File>
               <FileName>drv_common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_common.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>peripheral-samples</GroupName>
+          <Files>
+            <File>
+              <FileName>pwm_led_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\peripheral_samples-latest\pwm_led_sample.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -538,9 +558,19 @@
           <GroupName>DeviceDrivers</GroupName>
           <Files>
             <File>
+              <FileName>hwtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\hwtimer\hwtimer.c</FilePath>
+            </File>
+            <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\drivers\misc\pin.c</FilePath>
+            </File>
+            <File>
+              <FileName>rt_drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\misc\rt_drv_pwm.c</FilePath>
             </File>
             <File>
               <FileName>serial.c</FileName>
@@ -691,6 +721,16 @@
               <FileName>stm32f1xx_hal_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c</FilePath>
             </File>
           </Files>
         </Group>
