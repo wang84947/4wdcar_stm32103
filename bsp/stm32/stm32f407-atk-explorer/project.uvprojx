@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>0</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F407xx, RT_USING_ARM_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..\..\..\include;applications;.;board;board\CubeMX_Config\Inc;board\ports;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\libraries\HAL_Drivers\drv_flash;packages\CanFestival-latest\inc;packages\fal-latest\inc;packages\fastlz-latest;packages\kernel_samples-latest;packages\ota_downloader-latest;packages\pahomqtt-latest\MQTTPacket\src;packages\pahomqtt-latest\MQTTClient-RT;packages\partition-v1.0.1;packages\peripheral_samples-v0.4.0;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\dfs\include;..\..\..\components\dfs\filesystems\devfs;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\spi\sfud\inc;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\armlibc;..\..\..\components\libc\compilers\common;..\..\..\components\net\lwip-2.0.2\src;..\..\..\components\net\lwip-2.0.2\src\include;..\..\..\components\net\lwip-2.0.2\src\include\ipv4;..\..\..\components\net\lwip-2.0.2\src\arch\include;..\..\..\components\net\lwip-2.0.2\src\include\netif;..\..\..\components\net\netdev\include;..\..\..\components\net\sal_socket\include;..\..\..\components\net\sal_socket\include\socket;..\..\..\components\net\sal_socket\impl;..\..\..\components\net\sal_socket\include\dfs_net;..\..\..\components\net\sal_socket\include\dfs_net\sys_select;..\..\..\components\net\sal_socket\include\socket\sys_socket;..\..\..\components\utilities\ulog;..\..\..\components\utilities\ymodem;..\..\..\components\utilities\utest;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;..\..\..\include;applications;.;board;board\CubeMX_Config\Inc;board\ports;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\libraries\HAL_Drivers\drv_flash;packages\fal-latest\inc;packages\fastlz-latest;packages\ota_downloader-latest;packages\pahomqtt-latest\MQTTPacket\src;packages\pahomqtt-latest\MQTTClient-RT;packages\partition-v1.0.1;packages\peripheral_samples-latest;packages\rt-robot-latest\chassis;packages\rt-robot-latest\controller;packages\rt-robot-latest\encoder;packages\rt-robot-latest\kinematics;packages\rt-robot-latest\motor;packages\rt-robot-latest\pid;packages\rt-robot-latest\robot;packages\rt-robot-latest\wheel;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\dfs\include;..\..\..\components\dfs\filesystems\devfs;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\spi\sfud\inc;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\armlibc;..\..\..\components\libc\compilers\common;..\..\..\components\net\lwip-2.0.2\src;..\..\..\components\net\lwip-2.0.2\src\include;..\..\..\components\net\lwip-2.0.2\src\include\ipv4;..\..\..\components\net\lwip-2.0.2\src\arch\include;..\..\..\components\net\lwip-2.0.2\src\include\netif;..\..\..\components\net\netdev\include;..\..\..\components\net\sal_socket\include;..\..\..\components\net\sal_socket\include\socket;..\..\..\components\net\sal_socket\impl;..\..\..\components\net\sal_socket\include\dfs_net;..\..\..\components\net\sal_socket\include\dfs_net\sys_select;..\..\..\components\net\sal_socket\include\socket\sys_socket;..\..\..\components\utilities\ulog;..\..\..\components\utilities\ymodem;..\..\..\components\utilities\utest;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -528,6 +528,11 @@
               <FilePath>..\libraries\HAL_Drivers\drv_hwtimer.c</FilePath>
             </File>
             <File>
+              <FileName>drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_pwm.c</FilePath>
+            </File>
+            <File>
               <FileName>drv_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_spi.c</FilePath>
@@ -679,91 +684,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>kernel-samples</GroupName>
-          <Files>
-            <File>
-              <FileName>thread_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\thread_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>semaphore_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\semaphore_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>mutex_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\mutex_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>mailbox_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\mailbox_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>event_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\event_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>msgq_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\msgq_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\timer_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>dynmem_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\dynmem_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>memp_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\memp_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>idlehook_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\idlehook_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>signal_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\signal_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>interrupt_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\interrupt_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>priority_inversion.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\priority_inversion.c</FilePath>
-            </File>
-            <File>
-              <FileName>timeslice_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\timeslice_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>scheduler_hook.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\scheduler_hook.c</FilePath>
-            </File>
-            <File>
-              <FileName>producer_consumer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kernel_samples-latest\producer_consumer.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>ota_downloader</GroupName>
           <Files>
             <File>
@@ -859,12 +779,92 @@
             <File>
               <FileName>adc_vol_sample.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\peripheral_samples-v0.4.0\adc_vol_sample.c</FilePath>
+              <FilePath>packages\peripheral_samples-latest\adc_vol_sample.c</FilePath>
+            </File>
+            <File>
+              <FileName>hwtimer_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\peripheral_samples-latest\hwtimer_sample.c</FilePath>
             </File>
             <File>
               <FileName>pin_beep_sample.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\peripheral_samples-v0.4.0\pin_beep_sample.c</FilePath>
+              <FilePath>packages\peripheral_samples-latest\pin_beep_sample.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_led_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\peripheral_samples-latest\pwm_led_sample.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>robots</GroupName>
+          <Files>
+            <File>
+              <FileName>chassis.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\chassis\chassis.c</FilePath>
+            </File>
+            <File>
+              <FileName>command.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\controller\command.c</FilePath>
+            </File>
+            <File>
+              <FileName>ps2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\controller\ps2.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\encoder\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder_AB.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\encoder\encoder_AB.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder_single.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\encoder\encoder_single.c</FilePath>
+            </File>
+            <File>
+              <FileName>kinematics.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\kinematics\kinematics.c</FilePath>
+            </File>
+            <File>
+              <FileName>dc_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\motor\dc_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\motor\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\pid\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>mobile_robot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\robot\mobile_robot.c</FilePath>
+            </File>
+            <File>
+              <FileName>robot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\robot\robot.c</FilePath>
+            </File>
+            <File>
+              <FileName>wheel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\wheel\wheel.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1029,6 +1029,11 @@
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\drivers\misc\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>rt_drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\misc\rt_drv_pwm.c</FilePath>
             </File>
             <File>
               <FileName>serial.c</FileName>
