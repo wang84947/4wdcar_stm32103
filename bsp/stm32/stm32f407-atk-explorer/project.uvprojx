@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>0</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -805,6 +805,11 @@
               <FileName>pwm_led_sample.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\peripheral_samples-latest\pwm_led_sample.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\peripheral_samples-latest\uart_sample.c</FilePath>
             </File>
           </Files>
         </Group>

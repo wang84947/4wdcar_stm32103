@@ -5,3 +5,4 @@
 https://www.yahboom.com/study  亚博智能小车  搭载rt-thread  just for fun and study
 
 
+调试串口 ，串口1 作为finsh 串口3 作为蓝牙通讯接口 
