@@ -14,16 +14,17 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <drv_gpio.h>
+#include <single_pwm_motor.h>
 
 
 
-#define Motor_RCC		 RCC_APB2Periph_GPIOB
-#define Motor_Port		 GPIOB
-#define Left_MotoA_Pin 	 GPIO_Pin_9
-#define Left_MotoB_Pin 	 GPIO_Pin_8
+//#define Motor_RCC		 RCC_APB2Periph_GPIOB
+//#define Motor_Port		 GPIOB
+//#define Left_MotoA_Pin 	 GPIO_Pin_9
+//#define Left_MotoB_Pin 	 GPIO_Pin_8
 
-#define Right_MotoA_Pin	 GPIO_Pin_4
-#define Right_MotoB_Pin  GPIO_Pin_5
+//#define Right_MotoA_Pin	 GPIO_Pin_4
+//#define Right_MotoB_Pin  GPIO_Pin_5
 
 
 /*#define SetBits(Motor_Port, Left_MotoA_Pin)    rt_pin_write(GET_PIN(B, 9), PIN_HIGH) 
@@ -58,13 +59,20 @@
 * @retval        void
 * @par History   нч
 */
-
+extern single_pwm_motor_t left_motor_pw;
+extern single_pwm_motor_t right_motor_pw;
+extern motor_t left_motor;
+extern motor_t right_motor;
 void Car_Run(int Speed)
 {
-	LeftMotor_Go();
-	RightMotor_Go();
-	LeftMotorPWM(Speed);		  
-	RightMotorPWM(Speed);	
+//	LeftMotor_Go();
+//	RightMotor_Go();
+//	LeftMotorPWM(Speed);		  
+//RightMotorPWM(Speed);	
+
+single_pwm_motor_set_speed(left_motor,300);
+single_pwm_motor_set_speed(right_motor,300);
+
 }
 
 /**
@@ -80,11 +88,14 @@ void Car_Run(int Speed)
 
 void Car_Back(int Speed)
 {
-	LeftMotor_Back();
-	RightMotor_Back();
+//	LeftMotor_Back();
+//	RightMotor_Back();
 
-	LeftMotorPWM(Speed);		  
-	RightMotorPWM(Speed);	
+//	LeftMotorPWM(Speed);		  
+//	RightMotorPWM(Speed);	
+single_pwm_motor_set_speed(left_motor,-300);
+single_pwm_motor_set_speed(right_motor,-300);
+
 }
 
 /**
@@ -100,11 +111,14 @@ void Car_Back(int Speed)
 
 void Car_Left(int Speed)
 {
-	LeftMotor_Stop();
-	RightMotor_Go();
+	//LeftMotor_Stop();
+	//RightMotor_Go();
 
-	LeftMotorPWM(0);		  
-	RightMotorPWM(Speed);		
+	//LeftMotorPWM(0);		  
+	//RightMotorPWM(Speed);	
+
+single_pwm_motor_set_speed(left_motor,0);
+single_pwm_motor_set_speed(right_motor,300);
 }
 
 /**
@@ -120,11 +134,13 @@ void Car_Left(int Speed)
 
 void Car_Right(int Speed)
 {
-	LeftMotor_Go();
-	RightMotor_Stop();
+//	LeftMotor_Go();
+//	RightMotor_Stop();
 
-	LeftMotorPWM(Speed);		  
-	RightMotorPWM(0);		
+//	LeftMotorPWM(Speed);		  
+//	RightMotorPWM(0);	
+single_pwm_motor_set_speed(left_motor,300);
+single_pwm_motor_set_speed(right_motor,0);
 }
 
 /**
@@ -140,11 +156,14 @@ void Car_Right(int Speed)
 
 void Car_Stop(void)
 {
-	LeftMotor_Stop();
-	RightMotor_Stop();
+//	LeftMotor_Stop();
+//	RightMotor_Stop();
 
-	LeftMotorPWM(0);		  
-	RightMotorPWM(0);		
+//	LeftMotorPWM(0);		  
+//	RightMotorPWM(0);
+
+single_pwm_motor_set_speed(left_motor,0);
+single_pwm_motor_set_speed(right_motor,0);
 }
 
 /**
@@ -160,11 +179,14 @@ void Car_Stop(void)
 
 void Car_SpinLeft(int LeftSpeed, int RightSpeed)
 {
-	LeftMotor_Back();
-	RightMotor_Go();
+//	LeftMotor_Back();
+//	RightMotor_Go();
 
-	LeftMotorPWM(LeftSpeed);		  
-	RightMotorPWM(RightSpeed);		
+//	LeftMotorPWM(LeftSpeed);		  
+//	RightMotorPWM(RightSpeed);	
+
+single_pwm_motor_set_speed(left_motor,LeftSpeed);
+single_pwm_motor_set_speed(right_motor,RightSpeed);
 }
 
 /**
@@ -180,9 +202,11 @@ void Car_SpinLeft(int LeftSpeed, int RightSpeed)
 
 void Car_SpinRight(int LeftSpeed, int RightSpeed)
 {
-	LeftMotor_Go();
-	RightMotor_Back();
+//	LeftMotor_Go();
+//	RightMotor_Back();
 
-	LeftMotorPWM(LeftSpeed);		  
-	RightMotorPWM(RightSpeed);		
+//	LeftMotorPWM(LeftSpeed);		  
+//	RightMotorPWM(RightSpeed);
+single_pwm_motor_set_speed(left_motor,LeftSpeed);
+single_pwm_motor_set_speed(right_motor,RightSpeed);
 }

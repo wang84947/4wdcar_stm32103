@@ -7,6 +7,8 @@ src     = Split("""
 main.c
 app_can.c
 rtboot_f4.c
+app_motor.c
+protocol.c
 """)
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)

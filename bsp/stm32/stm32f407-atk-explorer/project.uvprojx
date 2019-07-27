@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -478,14 +478,19 @@
               <FilePath>applications\rtboot_f4.c</FilePath>
             </File>
             <File>
-              <FileName>protocol.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\protocol.c</FilePath>
-            </File>
-            <File>
               <FileName>app_motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\applications\app_motor.c</FilePath>
+              <FilePath>applications\app_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_car.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\app_car.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -862,14 +867,19 @@
               <FilePath>packages\rt-robot-latest\kinematics\kinematics.c</FilePath>
             </File>
             <File>
-              <FileName>dc_motor.c</FileName>
+              <FileName>dual_pwm_motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\rt-robot-latest\motor\dc_motor.c</FilePath>
+              <FilePath>packages\rt-robot-latest\motor\dual_pwm_motor.c</FilePath>
             </File>
             <File>
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\rt-robot-latest\motor\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>single_pwm_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\rt-robot-latest\motor\single_pwm_motor.c</FilePath>
             </File>
             <File>
               <FileName>pid.c</FileName>

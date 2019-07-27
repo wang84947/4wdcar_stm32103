@@ -12,6 +12,7 @@
 */
 
 #include "protocol.h"
+#include "app_car.h"
 //#include "usart.h"
 //#include "app_buzzer.h"
 //#include "bsp_servo.h"
@@ -346,6 +347,17 @@ void Protocol(void)
 			case enTRIGHT: Car_SpinRight(CarSpeedControl, CarSpeedControl); break;
 			default: Car_Stop(); break;
 		}
+//	switch (g_CarState)
+//		{
+//			case enSTOP: car_stop(0,0); break;
+//			case enRUN: car_forward(0,0); break;
+//			case enLEFT: car_turnleft(0,0); break;
+//			case enRIGHT: car_turnright(0,0); break;
+//			case enBACK: car_backward(0,0); break;
+//			case enTLEFT: Car_SpinLeft(0,0); break;
+//			case enTRIGHT: Car_SpinRight(0,0); break;
+//			default: car_stop(0,0); break;
+//		}
 	}
 	
 
