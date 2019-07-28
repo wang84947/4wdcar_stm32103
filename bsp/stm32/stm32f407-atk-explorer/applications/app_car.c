@@ -128,8 +128,8 @@ void car_thread(void *param)
 #define PWM_DEV_CHANNEL1     2       /* PWM通道  PB7 */ 
 #define PWM_DEV_CHANNEL2     1       /* PWM通道PB6 */
 
-#define Left_MotoA_Pin 	 GET_PIN(B,9) 
-#define Left_MotoB_Pin 	 GET_PIN(B,8)
+#define Left_MotoA_Pin 	 GET_PIN(B,8) 
+#define Left_MotoB_Pin 	 GET_PIN(B,9)
 
 #define Right_MotoA_Pin	 GET_PIN(B,5)  
 #define Right_MotoB_Pin  GET_PIN(B,4)

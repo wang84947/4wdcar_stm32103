@@ -117,7 +117,7 @@ void Car_Left(int Speed)
 	//LeftMotorPWM(0);		  
 	//RightMotorPWM(Speed);	
 
-single_pwm_motor_set_speed(left_motor,0);
+single_pwm_motor_set_speed(left_motor,-150);
 single_pwm_motor_set_speed(right_motor,300);
 }
 
@@ -140,7 +140,7 @@ void Car_Right(int Speed)
 //	LeftMotorPWM(Speed);		  
 //	RightMotorPWM(0);	
 single_pwm_motor_set_speed(left_motor,300);
-single_pwm_motor_set_speed(right_motor,0);
+single_pwm_motor_set_speed(right_motor,-150);
 }
 
 /**

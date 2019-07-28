@@ -6,57 +6,46 @@ https://www.yahboom.com/study  亚博智能小车  搭载rt-thread  just for fun
 
 调试串口 ，串口1 作为finsh 串口3 作为蓝牙通讯接口 
 
+# 目的
+
+实现蓝牙遥控，车辆前进、后退、左转、右转，后续以太网远程finish控制
+
 #  智能战车 开发记录
 
 ## 硬件环境
 亚博智能小车  正点原子探索者407 开发版  STM32 MINI borad
+
+开发板图片：
+
+小车图片：
+
 ### 主要器件
 - 底盘
 
 - 电机
 
-<!-- ![Alt text](/figures/motor.png) -->
-<img src="/figures/motor.png" width="56%">
-
 - 车轮
 
-<!-- ![Alt text](/figures/wheel.png) -->
-<img src="/figures/wheel.png" width="56%">
-
 - 测速模块
-
-<!-- ![Alt text](/figures/encoder.png) -->
-<img src="/figures/encoder.png" width="56%">
 
 
 - 电池
 
-<!-- ![Alt text](/figures/battery.png) -->
-<img src="/figures/battery.png" width="56%">
-
-- 遥控器
-
-<!-- ![Alt text](/figures/remote.png) -->
-<img src="/figures/remote.png" width="56%">
-
 - 控制板
-
-<!-- ![Alt text](/figures/board.png) -->
-<img src="/figures/board.png" width="56%">
 
 ### 清单
 
 | 类别                   | 数量 |
 | ---------------------- | ---- |
-| 两驱三轮底盘(带电路)   | x1   |
-| TT 直流减速电机        | x2   |
+| 两驱4轮底盘            | x1   |
+| TT 直流减速电机        | x4   |
 | 橡胶轮胎( TT 马达专用) | x4   |
-| 万向轮                 | x1   |
+| 驱动板                 | x1   |
 | 光电编码器             | x2   |
 | 码盘                   | x2   |
-| 充电锂电池             | x2   |
-| ps2 无线手柄           | x1   |
-| Iot-board              | x1   |
+| 充电锂电池包           | x1   |
+| 串口蓝牙模块           | x1   |
+| APP                    | x1   |
 
 
 ### 软件清单
@@ -111,7 +100,7 @@ https://www.yahboom.com/study  亚博智能小车  搭载rt-thread  just for fun
 
 #### 串口工具
 
-该类工具较多，有多功能的 putty 等软件也有专注的串口助手工具sscom等。软件获取较为简单，此处不再介绍。
+xshell。
 
 ## 开发
 
@@ -119,68 +108,41 @@ https://www.yahboom.com/study  亚博智能小车  搭载rt-thread  just for fun
 
 #### 获取 rt-thread
 
-- 百度网盘
+- https://github.com/RT-Thread/rt-thread  fork 官网全部文件
+- ![1564303747071](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1564303747071.png)复制STM32 raspi2 两个文件下的所有文件
+- ![1564303821494](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1564303821494.png)保留stm32下的如图文件
+#### 获取package 软件包 rtrobt
 
-网盘链接: https://pan.baidu.com/s/1mgIAyWo#list/path=%2F
+右键运行ENV,运行menuconfig 
 
-- git
-
-先 clone 下来 rt-thread 仓库。      git 命令: "git clone [url]"     
-
-然后拉取 lts-v3.1.x 分支。 git 命令: "git checkout -b [branch_name] origin/lts-v3.1.x"
-
-![Alt text](/figures/git_clone_rtt.png)
-
-![Alt text](/figures/git_branch_lts.png)
-
-#### 生成独立工程
-
-1。生成。进入到 "bsp/stm32/stm32l475-atk-pandora" 目录下，在该目录下打开 env 工具，执行命令: "scons --dist" 生成独立工程，生成后的工程在 "./dist" 目录中。(ps: 可随意拷贝该工程到任意目录下使用)
-
-![Alt text](/figures/scons_dist.png)
-
-![Alt text](/figures/dir_dist.png)
-
-2。测试。在工程目录打开 env 工具，使用命令: "scons --target=mdk5" 生成 mdk5 工程。打开 mdk5 工程，编译并下载，可以观察到板载 led 闪烁 或 打开串口可发送命令交互。
-
-### II. 外设配置
-
-当前 bsp 驱动默认配置并不适用此项目，需要做修改。
-
-#### bsp 驱动配置
-
-使用 stm32CubeMX 进行配置。
-
-- __pwm__  此处使用 TIM4：PB8，PB9 和 TIM2：PB10，PB11，配置完成后点击 GENERATE CODE 生成代码 (note: 如提示缺失 Firmware 要下载,点击取消然后点击 continue 只生成 SourceCode 即可)
-
-![Alt text](/figures/cubemx.png)
-
-注意事项：
-- 所使用的 Timers 的 Clock Source 需要选取
-- 默认开启的 TIM4 CH2 没有使用，手动关闭
-- 生成代码时如提示缺失 Firware 要下载，点击No，然后在新弹框点击 Continue 只生成 source code 即可
-
-![Alt text](/figures/cubemx_firware_miss.png)
-![Alt text](/figures/cubemx_firware_miss_continue.png)
-
-#### 修改 Kconfig
-
-使用 stm32CubeMX 配置完成后需要对 "board/Kconfig" 做相应修改以便启用配置，修改完成后如下：
-
-![Alt text](/figures/Kconfig.png)
+->![1564304281961](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1564304281961.png)
 
 ### III. 应用开发
 
-#### 1. todo
-
-- 软件包: 使用命令 pkgs --update 更新软件包索引; 选中 rt-robots 软件包，并使能 pwm 外设; 生成mdk5工程。
-
-    图
-
-- 使用rt-robots软件包，确定引脚，进行小车初始化，编译下载测试
-
-    ...
-
-#### n. 待续
+- stm32 mini finsh 没调通，先调F4开发板的 树莓派的还不知道如何操作 先放着，
+- 生成MDK 工程
+- https://github.com/wang84947/4wdcar_stm32103
 
 ## 经验 or 注意事项 ?
+
+问题一  - 车子能前进，后退不能转弯，
+
+single_pwm_motor_set_speed(left_motor,100);
+//single_pwm_motor_set_speed(right_motor,100);
+这样车子不能动
+//single_pwm_motor_set_speed(left_motor,100);
+single_pwm_motor_set_speed(right_motor,100);
+这样也不能动
+
+最终解决：  电机控制 需要三个信号 两个IO 控制前进后退，一个PWM控制速度，我把A 轮的PWM 接到了B轮上。
+
+问题二 -  车子跑了一段时间突然左轮能动，右轮不能动了
+
+解决： 我直接找到轮子的相应IO 和PWM 分别插到  VCC 和GND 排除硬件问题，后LED 测量IO输出  发现均正常，
+
+后续排查发现一公一母头的排线，公头针比较细，排插孔容易松动。幸好驱动板 树莓派的接口是排针公头 ，找对相应的控制接口 ，让开发板控制这上面的IO,用两个母头的杜邦线连接
+
+
+
+
+
