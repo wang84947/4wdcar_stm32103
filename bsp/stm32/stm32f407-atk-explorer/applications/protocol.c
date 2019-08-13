@@ -338,26 +338,26 @@ void Protocol(void)
 		//根据小车状态做相应的动作
 		switch (g_CarState)
 		{
-			case enSTOP: Car_Stop(); break;
-			case enRUN: Car_Run(CarSpeedControl); break;
-			case enLEFT: Car_Left(CarSpeedControl); break;
-			case enRIGHT: Car_Right(CarSpeedControl); break;
-			case enBACK: Car_Back(CarSpeedControl); break;
-			case enTLEFT: Car_SpinLeft(CarSpeedControl, CarSpeedControl); break;
-			case enTRIGHT: Car_SpinRight(CarSpeedControl, CarSpeedControl); break;
-			default: Car_Stop(); break;
+//			case enSTOP: Car_Stop(); break;
+//			case enRUN: Car_Run(CarSpeedControl); break;
+//			case enLEFT: Car_Left(CarSpeedControl); break;
+//			case enRIGHT: Car_Right(CarSpeedControl); break;
+//			case enBACK: Car_Back(CarSpeedControl); break;
+//			case enTLEFT: Car_SpinLeft(CarSpeedControl, CarSpeedControl); break;
+//			case enTRIGHT: Car_SpinRight(CarSpeedControl, CarSpeedControl); break;
+//			default: Car_Stop(); break;
 		}
-//	switch (g_CarState)
-//		{
-//			case enSTOP: car_stop(0,0); break;
-//			case enRUN: car_forward(0,0); break;
-//			case enLEFT: car_turnleft(0,0); break;
-//			case enRIGHT: car_turnright(0,0); break;
-//			case enBACK: car_backward(0,0); break;
-//			case enTLEFT: Car_SpinLeft(0,0); break;
-//			case enTRIGHT: Car_SpinRight(0,0); break;
-//			default: car_stop(0,0); break;
-//		}
+	switch (g_CarState)
+		{
+			case enSTOP: car_stop(0,0); break;
+			case enRUN: car_forward(0,0); break;
+			case enLEFT: car_turnleft(0,0); break;
+			case enRIGHT: car_turnright(0,0); break;
+			case enBACK: car_backward(0,0); break;
+			case enTLEFT: Car_SpinLeft(0,0); break;
+			case enTRIGHT: Car_SpinRight(0,0); break;
+			default: car_stop(0,0); break;
+		}
 	}
 	
 

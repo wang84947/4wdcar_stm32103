@@ -9,6 +9,9 @@ app_can.c
 rtboot_f4.c
 app_motor.c
 protocol.c
+
+app_car.c
+
 """)
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)

@@ -670,29 +670,33 @@ void EXTI4_15_IRQHandler(void)
 
 #else
 
+
 void EXTI0_IRQHandler(void)
 {
     rt_interrupt_enter();
     HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
     rt_interrupt_leave();
 }
-
+unsigned char  test=0;
+unsigned char  test1=0;
 void EXTI1_IRQHandler(void)
 {
     rt_interrupt_enter();
+    test1++;
     HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
     rt_interrupt_leave();
 }
-
+unsigned char test2=0;
 void EXTI2_IRQHandler(void)
 {
+test2++;
     rt_interrupt_enter();
     HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
     rt_interrupt_leave();
 }
 
 void EXTI3_IRQHandler(void)
-{
+{		test++;
     rt_interrupt_enter();
     HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
     rt_interrupt_leave();

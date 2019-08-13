@@ -24,6 +24,12 @@ menu "Onboard Peripheral Drivers"
         select BSP_USING_UART
         select BSP_USING_UART3
         default n
+        
+     config BSP_USING_COM6
+        bool "Enable COM6 (uart6)"
+        select BSP_USING_UART
+        select BSP_USING_UART6
+        default n    
 
     config BSP_USING_SPI_FLASH
         bool "Enable SPI FLASH (W25Q128 spi1)"
