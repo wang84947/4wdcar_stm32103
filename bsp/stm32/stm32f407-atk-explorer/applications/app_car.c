@@ -84,7 +84,7 @@ rt_err_t car_forward(rt_int8_t cmd, void *param)
 {
     struct velocity target_velocity;
 
-    target_velocity.linear_x = 0.2f;
+    target_velocity.linear_x = 0.4f;
     target_velocity.linear_y = 0;
     target_velocity.angular_z = 0;
     chassis_set_velocity(chas, target_velocity);
@@ -99,7 +99,7 @@ rt_err_t car_backward(rt_int8_t cmd, void *param)
 {
     struct velocity target_velocity;
 
-    target_velocity.linear_x = -0.2f;
+    target_velocity.linear_x = -0.4f;
     target_velocity.linear_y = 0;
     target_velocity.angular_z = 0;
     chassis_set_velocity(chas, target_velocity);
@@ -119,7 +119,7 @@ rt_err_t car_turnleft(rt_int8_t cmd, void *param)
 
     target_velocity.linear_x = 0.00f;
     target_velocity.linear_y = 0;
-    target_velocity.angular_z = 3;
+    target_velocity.angular_z = -5;
     chassis_set_velocity(chas, target_velocity);
 	
 	chas->c_wheels[0]->w_encoder->dir=ENCODER_DIR_BACKWARD;
@@ -135,7 +135,7 @@ rt_err_t car_turnright(rt_int8_t cmd, void *param)
 
     target_velocity.linear_x = 0.00f;
     target_velocity.linear_y = 0;
-    target_velocity.angular_z = -3;
+    target_velocity.angular_z = 5;
     chassis_set_velocity(chas, target_velocity);
 	
 	chas->c_wheels[0]->w_encoder->dir=ENCODER_DIR_FORWARD;
